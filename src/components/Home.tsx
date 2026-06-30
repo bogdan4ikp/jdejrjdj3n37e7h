@@ -7,6 +7,8 @@ import { Scanner } from '@yudiel/react-qr-scanner';
 import { globalSocket } from '../lib/socket';
 import ProfileModal from './ProfileModal';
 
+import { getAppOrigin } from '../lib/config';
+
 const containerVariants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.1 } }
@@ -39,7 +41,7 @@ export default function Home({
   useEffect(() => {
     const newRoomId = Math.random().toString(36).substring(2, 9);
     setRoomId(newRoomId);
-    setQrUrl(`${window.location.origin}/?room=${newRoomId}`);
+    setQrUrl(`${getAppOrigin()}/?room=${newRoomId}`);
     
     // Load friends
     const storedFriends = localStorage.getItem('friends');

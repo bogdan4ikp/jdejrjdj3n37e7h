@@ -1,4 +1,5 @@
 import { io, Socket } from 'socket.io-client';
+import { getAppOrigin } from './config';
 import { UserProfile, FileMetadata } from '../types';
 
 type RTCEvents = {
@@ -18,7 +19,7 @@ export class WebRTCManager {
   private receivingFiles: Map<string, { meta: FileMetadata, chunks: ArrayBuffer[], receivedSize: number }> = new Map();
   
   constructor(private roomId: string, private user: UserProfile, private events: RTCEvents) {
-    this.socket = io(window.location.origin);
+    this.socket = io(getAppOrigin());
     
     this.socket.on('connect', () => {
       this.socket.emit('join-room', this.roomId, this.user);

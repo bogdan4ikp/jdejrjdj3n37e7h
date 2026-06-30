@@ -1,5 +1,6 @@
 import { io } from 'socket.io-client';
+import { getAppOrigin } from './config';
 
-export const globalSocket = io(window.location.origin, {
+export const globalSocket = io(getAppOrigin(), {
   autoConnect: false,
 });
