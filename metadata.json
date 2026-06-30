@@ -1,0 +1,6 @@
+{
+  "name": "Beam",
+  "description": "Secure, peer-to-peer file sharing via Wi-Fi with end-to-end encryption. Works seamlessly by scanning a QR code.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
